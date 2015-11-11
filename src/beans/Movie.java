@@ -29,8 +29,8 @@ public class Movie implements Serializable {
     private String Title = null;
     
     @Id
-    @Column(name = "Performer")
-    private String Author = null;
+    @Column(name = "publisher")
+    private String Publisher = null;
    
     @Id
     @Column(name = "availablecopies")
@@ -76,15 +76,15 @@ public class Movie implements Serializable {
     /**
      * @return the Author
      */
-    public String getAuthor() {
-        return Author;
+    public String getPublisher() {
+        return Publisher;
     }
 
     /**
      * @param Author the Author to set
      */
-    public void setAuthor(String Author) {
-        this.Author = Author;
+    public void setPublisher(String Author) {
+        this.Publisher = Author;
     }
 
     /**
