@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Add Book</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <h:form>
+            <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+                <h:outputText value="ISBN:"></h:outputText>
+                <h:inputText label="ISBN" value="#{book.ISBN}" required="true">
+                    <f:validateLength minimum="5" maximum="5"></f:validateLength>
+                    <f:validator validatorId="bookValidator"/>
+                </h:inputText>
+                <h:outputText value="Author:"></h:outputText>
+                <h:inputText label="author" value="#{book.author}" required="true"></h:inputText>
+                <h:outputText value="Title:"></h:outputText>
+                <h:inputText label="title" value="#{book.title}" required="true"></h:inputText>
+                <h:outputText value="Total Copies:"></h:outputText>
+                <h:inputText label="totalCopies" value="#{book.totalCopies}" required="true"></h:inputText>
+                <h:commandButton action="#{bookController.saveBook()}" value="Submit"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

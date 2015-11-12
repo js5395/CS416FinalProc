@@ -3,120 +3,91 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
+package edu.ccsu.model;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
  *
- * @author James
+ * @author Steve
  */
 @ManagedBean
+@RequestScoped
 @Entity
-@Table( name = "Books")
+@Table(name = "Books")
 public class Book implements Serializable {
     
     @Id
     @Column(name = "ISBN")
-    private Integer ISBN = null;
+    private int ISBN;
     
-    @Id
-    @Column(name = "title")
-    private String Title = null;
+    @Column(name = "Title")
+    private String title = null;
     
-    @Id
-    @Column(name = "author")
-    private String Author = null;
-   
-    @Id
-    @Column(name = "availablecopies")
-    private Integer AvailableCopies = null;
+    @Column(name = "Author")
+    private String author = null;
     
-    @Id
-    @Column(name = "totalcopies")
-    private Integer TotalCopies = null;
+    @Column(name = "AvailableCopies")
+    private Integer availableCopies = null;
     
-
-    @Override
-    public String toString() {
-        return "beans.Book[ ISBN=" + getISBN() + " ]";
+    @Column(name = "TotalCopies")
+    private Integer totalCopies = null;
+    
+    public Book(){
+        
     }
 
-    /**
-     * @return the ISBN
-     */
-    public Integer getISBN() {
+    public int getISBN() {
         return ISBN;
     }
 
-    /**
-     * @param ISBN the ISBN to set
-     */
-    public void setISBN(Integer ISBN) {
+    public void setISBN(int ISBN) {
         this.ISBN = ISBN;
     }
-
-    /**
-     * @return the Title
-     */
-    public String getTitle() {
-        return Title;
-    }
-
-    /**
-     * @param Title the Title to set
-     */
-    public void setTitle(String Title) {
-        this.Title = Title;
-    }
-
-    /**
-     * @return the Author
-     */
-    public String getAuthor() {
-        return Author;
-    }
-
-    /**
-     * @param Author the Author to set
-     */
-    public void setAuthor(String Author) {
-        this.Author = Author;
-    }
-
-    /**
-     * @return the AvailableCopies
-     */
-    public Integer getAvailableCopies() {
-        return AvailableCopies;
-    }
-
-    /**
-     * @param AvailableCopies the AvailableCopies to set
-     */
-    public void setAvailableCopies(Integer AvailableCopies) {
-        this.AvailableCopies = AvailableCopies;
-    }
-
-    /**
-     * @return the TotalCopies
-     */
-    public Integer getTotalCopies() {
-        return TotalCopies;
-    }
-
-    /**
-     * @param TotalCopies the TotalCopies to set
-     */
-    public void setTotalCopies(Integer TotalCopies) {
-        this.TotalCopies = TotalCopies;
-    }
-
     
+    public String getTitle(){
+        return title;
+    }
+    
+    public void setTitle(String title){
+        this.title = title;
+    }
+    
+    public String getAuthor(){
+        return author;
+    }
+    
+    public void setAuthor(String author){
+        this.author = author;
+    }
+    
+    public Integer getAvailableCopies(){
+        return availableCopies;
+    }
+    
+    public void setAvailableCopies(Integer availableCopies){
+        this.availableCopies = availableCopies;
+    }
+    
+    public Integer getTotalCopies(){
+        return totalCopies;
+    }
+    
+    public void setTotalCopies(Integer totalCopies){
+        this.totalCopies = totalCopies;
+    }
+
+    @Override
+    public String toString() {
+        return "";
+    }
     
 }
