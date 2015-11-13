@@ -9,25 +9,25 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Add Movie</title>
+        <title>Add Music</title>
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="styles.css"/>
         <h:form>
-            <h2>Add Movie</h2>
+            <h2>Add Music</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                <h:outputText value="ISBN:"></h:outputText>
-                <h:inputText label="ISBN" value="#{movie.ID}" required="true">
+                <h:outputText value="ID:"></h:outputText>
+                <h:inputText label="ID" value="#{music.ID}" required="true">
                     <f:validateLength minimum="5" maximum="5"></f:validateLength>
-                    <f:validator validatorId="movieValidator"/>
+                    <f:validator validatorId="musicValidator"/>
                 </h:inputText>
                 <h:outputText value="Author:"></h:outputText>
-                <h:inputText label="author" value="#{movie.publisher}" required="true"></h:inputText>
+                <h:inputText label="author" value="#{music.artist}" required="true"></h:inputText>
                 <h:outputText value="Title:"></h:outputText>
-                <h:inputText label="title" value="#{movie.title}" required="true"></h:inputText>
+                <h:inputText label="title" value="#{music.title}" required="true"></h:inputText>
                 <h:outputText value="Total Copies:"></h:outputText>
-                <h:inputText label="totalCopies" value="#{movie.totalCopies}" required="true"></h:inputText>
-                <h:commandButton action="#{movieController.saveMovie()}" value="Submit"></h:commandButton>
+                <h:inputText label="totalCopies" value="#{music.totalCopies}" required="true"></h:inputText>
+                <h:commandButton action="#{musicController.saveMusic()}" value="Submit"></h:commandButton>
             </h:panelGrid>
         </h:form>
         <br></br>
@@ -35,13 +35,13 @@ and open the template in the editor.
         <h:form>
             <h2>Search</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                <h:outputText value="ISBN:"></h:outputText>
-                <h:inputText id="ISBN" required="false"></h:inputText>
+                <h:outputText value="ID:"></h:outputText>
+                <h:inputText id="ID" required="false"></h:inputText>
                 <h:outputText value="Author:"></h:outputText>
                 <h:inputText id="author" required="false"></h:inputText>
                 <h:outputText value="Title:"></h:outputText>
                 <h:inputText id="title" required="false"></h:inputText>
-                <h:commandButton action="MovieSearch" value="Search"></h:commandButton>
+                <h:commandButton action="musicSearch" value="Search"></h:commandButton>
             </h:panelGrid>
         </h:form>
     </h:body>

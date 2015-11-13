@@ -1,4 +1,9 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -7,22 +12,36 @@
         <title>Add Movie</title>
     </h:head>
     <h:body>
-        <h1>Add Movie</h1>
         <h:outputStylesheet library="css" name="styles.css"/>
-        <h:messages style="color:red;font-weight:bold;"></h:messages>
         <h:form>
-
+            <h2>Add Movie</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                <h:outputText value="ID"></h:outputText>
-                <h:inputText label="ID" value="#{Movie.ID}" required="true"></h:inputText>
-                <h:outputText value="Title"></h:outputText>
-                <h:inputText label="title" value="#{Movie.Title}" required="true"></h:inputText>
-                <h:outputText value="Publisher"></h:outputText>
-                <h:inputText label="publisher" value="#{Movie.Publisher}" required="true"></h:inputText>
-                <h:outputText value="Total Copies"></h:outputText>
-                <h:inputText label="totalcopies" value="#{Movie.TotalCopies}" required="false"></h:inputText>
-                <h:panelGroup></h:panelGroup>
-                <h:commandButton action="#{movieController.saveMovie}" value="Save"></h:commandButton>
+                <h:outputText value="ISBN:"></h:outputText>
+                <h:inputText label="ISBN" value="#{movie.ID}" required="true">
+                    <f:validateLength minimum="5" maximum="5"></f:validateLength>
+                    <f:validator validatorId="movieValidator"/>
+                </h:inputText>
+                <h:outputText value="Author:"></h:outputText>
+                <h:inputText label="author" value="#{movie.publisher}" required="true"></h:inputText>
+                <h:outputText value="Title:"></h:outputText>
+                <h:inputText label="title" value="#{movie.title}" required="true"></h:inputText>
+                <h:outputText value="Total Copies:"></h:outputText>
+                <h:inputText label="totalCopies" value="#{movie.totalCopies}" required="true"></h:inputText>
+                <h:commandButton action="#{movieController.saveMovie()}" value="Submit"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+        <br></br>
+        <br></br>
+        <h:form>
+            <h2>Search</h2>
+            <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+                <h:outputText value="ISBN:"></h:outputText>
+                <h:inputText id="ISBN" required="false"></h:inputText>
+                <h:outputText value="Author:"></h:outputText>
+                <h:inputText id="author" required="false"></h:inputText>
+                <h:outputText value="Title:"></h:outputText>
+                <h:inputText id="title" required="false"></h:inputText>
+                <h:commandButton action="MovieSearch" value="Search"></h:commandButton>
             </h:panelGrid>
         </h:form>
     </h:body>
