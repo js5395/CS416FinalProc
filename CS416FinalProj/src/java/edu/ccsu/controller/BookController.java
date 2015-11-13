@@ -40,9 +40,19 @@ public class BookController {
         }
         return returnValue;
     }
-    
-    public void search(){
-        
+
+    public List getMatchingBooks(){
+        List<Book> books = new ArrayList();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String selectSQL = "select * from Books";
+        try {
+            Query selectQuery = entityManager.createQuery(selectSQL);
+            //selectQuery.setParameter("isbn", book.getISBN());
+            books = selectQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return books;
     }
     
     public Book getBook(){
