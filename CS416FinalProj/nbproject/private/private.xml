@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/BookAddedConfirmation.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/validators/BookValidator.java</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/BookAddedError.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/AddBook.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/BookController.java</file>
+            <file>file:/G:/CS416FinalProjectDev/CS416FinalProj/src/java/edu/ccsu/controller/BookController.java</file>
+            <file>file:/G:/CS416FinalProjectDev/CS416FinalProj/src/java/edu/ccsu/validators/MovieValidator.java</file>
+            <file>file:/G:/CS416FinalProjectDev/CS416FinalProj/web/AddBook.xhtml</file>
+            <file>file:/G:/CS416FinalProjectDev/CS416FinalProj/src/java/edu/ccsu/validators/BookValidator.java</file>
+            <file>file:/G:/CS416FinalProjectDev/CS416FinalProj/src/java/edu/ccsu/model/Book.java</file>
+            <file>file:/G:/CS416FinalProjectDev/CS416FinalProj/web/AddMovie.xhtml</file>
         </group>
     </open-files>
 </project-private>

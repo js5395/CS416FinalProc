@@ -22,7 +22,7 @@ and open the template in the editor.
                     <f:validator validatorId="bookValidator"/>
                 </h:inputText>
                 <h:outputText value="Author:"></h:outputText>
-                <h:inputText label="author" value="#{book.author}" required="true"></h:inputText>
+                <h:inputText label="author name" value="#{book.author}" required="true"></h:inputText>
                 <h:outputText value="Title:"></h:outputText>
                 <h:inputText label="title" value="#{book.title}" required="true"></h:inputText>
                 <h:outputText value="Total Copies:"></h:outputText>
@@ -30,21 +30,25 @@ and open the template in the editor.
                 <h:commandButton action="#{bookController.saveBook()}" value="Submit"></h:commandButton>
             </h:panelGrid>
         </h:form>
-        <br></br>
-        <br></br>
+        <br/>
+        <br/>
         <h:form>
             <h2>Search</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
                 <h:outputText value="ISBN:"></h:outputText>
                 <h:inputText label="ISBN" value="#{book.ISBN}" required="false">
-                <f:ajax event="keyup" render="datatable"/>
+                    <!--<f:ajax event="keyup" render="datatable"/>-->
                 </h:inputText>
                 <h:outputText value="Author:"></h:outputText>
-                <h:inputText label="author" value="#{book.author}" required="false"></h:inputText>
+                <h:inputText label="author" value="#{book.author}" required="false">
+                    <!--<f:ajax event="keyup" render="datatable"/>-->
+                </h:inputText>
                 <h:outputText value="Title:"></h:outputText>
-                <h:inputText label="title" value="#{book.title}" required="false"></h:inputText>
-                <h:commandButton action="#{bookController.getMatchingBooks()}" value="Search">
-                    <f:ajax event="click" render="datatable"/>
+                <h:inputText label="title" value="#{book.title}" required="false">
+                    <!--<f:ajax event="keyup" render="datatable"/>-->
+                </h:inputText>
+                <h:commandButton value="Search">
+                    <f:ajax render="datatable"/>
                 </h:commandButton>
             </h:panelGrid>
             <br/>
@@ -69,7 +73,7 @@ and open the template in the editor.
                     </f:facet> 
                     <h:outputText value="#{item.title}"></h:outputText>
                 </h:column>
-                
+
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Number of Available Copies"/>

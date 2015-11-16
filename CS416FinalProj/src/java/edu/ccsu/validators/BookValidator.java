@@ -32,15 +32,19 @@ public class BookValidator implements Validator {
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-        int isbn = (int) value;
+        String isbn = (String)value;
         HtmlInputText htmlInputText = (HtmlInputText) component;
         try (Connection connect = datasource.getConnection()) {
             String sql = "select isbn from books";
             PreparedStatement getISBN = connect.prepareStatement(sql);
             ResultSet isbnList = getISBN.executeQuery();
+            if(!isbn.matches("[0-9]+")){
+                FacesMessage facesMessage = new FacesMessage("ISBN must be only digits");
+                throw new ValidatorException(facesMessage);
+            }
             while (isbnList.next()) {
-                if (isbn == isbnList.getInt("ISBN")) {
-                    FacesMessage facesMessage = new FacesMessage(htmlInputText.getLabel() + "ISBN already exists");
+                if (isbn.equals(isbnList.getString("ISBN"))) {
+                    FacesMessage facesMessage = new FacesMessage(htmlInputText.getLabel() + " already exists");
                     throw new ValidatorException(facesMessage);
                 }
 

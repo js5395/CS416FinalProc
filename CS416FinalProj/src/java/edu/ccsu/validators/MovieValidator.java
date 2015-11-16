@@ -35,7 +35,7 @@ public class MovieValidator implements Validator {
         int id = (int) value;
         HtmlInputText htmlInputText = (HtmlInputText) component;
         try (Connection connect = datasource.getConnection()) {
-            String sql = "select id from books";
+            String sql = "select id from movies";
             PreparedStatement getID = connect.prepareStatement(sql);
             ResultSet idList = getID.executeQuery();
             while (idList.next()) {

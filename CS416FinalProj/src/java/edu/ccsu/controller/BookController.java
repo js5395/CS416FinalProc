@@ -18,13 +18,14 @@ import javax.transaction.UserTransaction;
  */
 @ManagedBean
 public class BookController {
+
     @PersistenceUnit(unitName = "CS416FinalProjPU")
     private EntityManagerFactory entityManagerFactory;
     @Resource
     private UserTransaction userTransaction;
     @ManagedProperty(value = "#{book}")
     private Book book;
-    
+
     public String saveBook() {
         String returnValue = "BookAddedError";
         try {
@@ -41,25 +42,33 @@ public class BookController {
         return returnValue;
     }
 
-    public List getMatchingBooks(){
+    public List getMatchingBooks() {
         List<Book> books = new ArrayList();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        String selectSQL = "select * from Books";
+        //String selectSQL = "select b from Book b where b.ISBN like :isbn";
+        String selectSQL = "SELECT b FROM Book b WHERE b.ISBN LIKE :isbn"
+                + " OR LOWER(b.author) LIKE LOWER(:author)"
+                + " OR LOWER(b.title) LIKE LOWER(:title)";
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
-            //selectQuery.setParameter("isbn", book.getISBN());
+
+            selectQuery.setParameter("isbn", book.getISBN() + "%");
+            selectQuery.setParameter("author", book.getAuthor() + "%");
+            selectQuery.setParameter("title", book.getTitle() + "%");
+
             books = selectQuery.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return books;
     }
-    
-    public Book getBook(){
+
+    public Book getBook() {
         return book;
     }
-    
-    public void setBook(Book book){
+
+    public void setBook(Book book) {
         this.book = book;
     }
 }
