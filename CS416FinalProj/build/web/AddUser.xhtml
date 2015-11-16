@@ -9,7 +9,7 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Add Book</title>
+        <title>Add User</title>
     </h:head>
     <h:body>    
         <h:outputStylesheet library="css" name="styles.css"/>
@@ -21,8 +21,19 @@ and open the template in the editor.
                     <f:validateLength minimum="6"></f:validateLength>
                     <f:validator validatorId="userValidator"/>
                 </h:inputText>
+                
                 <h:outputText value="Password"></h:outputText>
-                <h:inputSecret label="password" value="#{user.password}" required="true"></h:inputSecret>
+                <h:inputSecret label="password" value="#{user.password}" required="true">
+                    <f:validateLength minimum="6"></f:validateLength>
+                    <f:validator validatorId="passwordValidator"/>
+                    <f:attribute name="confirmPassword" value="#{confirmPassword}" />
+                </h:inputSecret>
+                
+                <h:outputText value="Confirm Password"></h:outputText>
+                <h:inputSecret label="confirmPassword" required="true" binding="#{confirmPassword}">
+                    <f:validateLength minimum="6"></f:validateLength>
+                </h:inputSecret>
+                
                 <h:commandButton action="#{loginController.saveUser()}" value="Submit"></h:commandButton>
             </h:panelGrid>
         </h:form>

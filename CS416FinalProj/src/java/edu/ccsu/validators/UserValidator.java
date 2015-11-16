@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 
 /**
  *
- * @author steve
+ * @author james
  */
 @FacesValidator(value = "userValidator")
 public class UserValidator implements Validator {
@@ -47,7 +47,7 @@ public class UserValidator implements Validator {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(BookValidator.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserValidator.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
