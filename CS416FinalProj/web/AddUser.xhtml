@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Add Book</title>
+    </h:head>
+    <h:body>    
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <h:form>
+            <h2>Add User</h2>
+            <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+                <h:outputText value="Username:"></h:outputText>
+                <h:inputText label="username" value="#{user.username}" required="true">
+                    <f:validateLength minimum="6"></f:validateLength>
+                    <f:validator validatorId="userValidator"/>
+                </h:inputText>
+                <h:outputText value="Password"></h:outputText>
+                <h:inputSecret label="password" value="#{user.password}" required="true"></h:inputSecret>
+                <h:commandButton action="#{loginController.saveUser()}" value="Submit"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

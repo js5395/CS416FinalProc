@@ -22,7 +22,7 @@ import javax.transaction.UserTransaction;
  * @author steve
  */
 @ManagedBean
-public class LoginController {
+public class LoginController  {
 
     @PersistenceUnit(unitName = "CS416FinalProjPU")
     private EntityManagerFactory entityManagerFactory;
@@ -46,6 +46,23 @@ public class LoginController {
                 return "Login";
             }
         }
+    }
+    
+    public String saveUser() {
+        String returnValue = "UserAddedError";
+        try {
+            userTransaction.begin();
+            EntityManager em = entityManagerFactory.createEntityManager();
+            user.setIsAdmin(false);
+            user.setIsLoggedIn(false);
+            em.persist(user);
+            userTransaction.commit();
+            em.close();
+            returnValue = "UserAddedConfirmation";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return returnValue;
     }
 
     public LoginController() {

@@ -37,15 +37,15 @@ and open the template in the editor.
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
                 <h:outputText value="ISBN:"></h:outputText>
                 <h:inputText label="ISBN" value="#{book.ISBN}" required="false">
-                    <!--<f:ajax event="keyup" render="datatable"/>-->
+                    <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
                 <h:outputText value="Author:"></h:outputText>
                 <h:inputText label="author" value="#{book.author}" required="false">
-                    <!--<f:ajax event="keyup" render="datatable"/>-->
+                    <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
                 <h:outputText value="Title:"></h:outputText>
                 <h:inputText label="title" value="#{book.title}" required="false">
-                    <!--<f:ajax event="keyup" render="datatable"/>-->
+                    <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
                 <h:commandButton value="Search">
                     <f:ajax render="datatable"/>
