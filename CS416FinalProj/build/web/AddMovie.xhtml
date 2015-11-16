@@ -16,13 +16,13 @@ and open the template in the editor.
         <h:form>
             <h2>Add Movie</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                <h:outputText value="ISBN:"></h:outputText>
-                <h:inputText label="ISBN" value="#{movie.ID}" required="true">
+                <h:outputText value="ID:"></h:outputText>
+                <h:inputText label="ID" value="#{movie.ID}" required="true">
                     <f:validateLength minimum="5" maximum="5"></f:validateLength>
                     <f:validator validatorId="movieValidator"/>
                 </h:inputText>
-                <h:outputText value="Author:"></h:outputText>
-                <h:inputText label="author" value="#{movie.publisher}" required="true"></h:inputText>
+                <h:outputText value="Publisher"></h:outputText>
+                <h:inputText label="publisher" value="#{movie.publisher}" required="true"></h:inputText>
                 <h:outputText value="Title:"></h:outputText>
                 <h:inputText label="title" value="#{movie.title}" required="true"></h:inputText>
                 <h:outputText value="Total Copies:"></h:outputText>

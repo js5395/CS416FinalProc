@@ -27,13 +27,13 @@ public class Movie implements Serializable {
     
     @Id
     @Column(name = "ID")
-    private Integer ID = null;
+    private String ID = null;
     
     @Column(name = "Title")
     private String title = null;
     
     @Column(name = "Publisher")
-    private String author = null;
+    private String publisher = null;
     
     @Column(name = "AvailableCopies")
     private Integer availableCopies = null;
@@ -45,11 +45,11 @@ public class Movie implements Serializable {
         
     }
 
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(Integer ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
     
@@ -62,11 +62,11 @@ public class Movie implements Serializable {
     }
     
     public String getPublisher(){
-        return author;
+        return publisher;
     }
     
-    public void setPublisher(String author){
-        this.author = author;
+    public void setPublisher(String publisher){
+        this.publisher = publisher;
     }
     
     public Integer getAvailableCopies(){

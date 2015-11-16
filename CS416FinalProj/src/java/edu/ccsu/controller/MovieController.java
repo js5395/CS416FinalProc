@@ -41,8 +41,26 @@ public class MovieController {
         return returnValue;
     }
     
-    public void search(){
-        
+    public List getMatchingMovies() {
+        List<Movie> movies = new ArrayList();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        //String selectSQL = "select b from Book b where b.ISBN like :isbn";
+        String selectSQL = "SELECT m FROM Movie m WHERE m.ID LIKE :id"
+                + " OR LOWER(m.publisher) LIKE LOWER(:publisher)"
+                + " OR LOWER(m.title) LIKE LOWER(:title)";
+        try {
+            Query selectQuery = entityManager.createQuery(selectSQL);
+
+            selectQuery.setParameter("id", movie.getID() + "%");
+            selectQuery.setParameter("publisher", movie.getPublisher() + "%");
+            selectQuery.setParameter("title", movie.getTitle() + "%");
+
+            movies = selectQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return movies;
     }
     
     public Movie getMovie(){

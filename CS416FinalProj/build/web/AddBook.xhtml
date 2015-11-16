@@ -47,9 +47,6 @@ and open the template in the editor.
                 <h:inputText label="title" value="#{book.title}" required="false">
                     <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
-                <h:commandButton value="Search">
-                    <f:ajax render="datatable"/>
-                </h:commandButton>
             </h:panelGrid>
             <br/>
             <h:dataTable id="datatable" value="#{bookController.matchingBooks}" var="item" border="3" cellpadding="2" cellspacing="2">
