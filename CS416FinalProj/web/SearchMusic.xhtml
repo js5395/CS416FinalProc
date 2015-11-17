@@ -16,33 +16,33 @@ and open the template in the editor.
         <h:form>
             <h2>Search</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                <h:outputText value="ISBN:"></h:outputText>
-                <h:inputText label="ISBN" value="#{book.ISBN}" required="false">
+                <h:outputText value="ID:"></h:outputText>
+                <h:inputText label="ID" value="#{music.ID}" required="false">
                     <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
-                <h:outputText value="Author:"></h:outputText>
-                <h:inputText label="author" value="#{book.author}" required="false">
+                <h:outputText value="Publisher:"></h:outputText>
+                <h:inputText label="artist" value="#{music.artist}" required="false">
                     <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
                 <h:outputText value="Title:"></h:outputText>
-                <h:inputText label="title" value="#{book.title}" required="false">
+                <h:inputText label="title" value="#{music.title}" required="false">
                     <f:ajax event="keyup" render="datatable"/>
                 </h:inputText>
             </h:panelGrid>
             <br/>
-            <h:dataTable id="datatable" value="#{bookController.matchingBooks}" var="item" border="3" cellpadding="2" cellspacing="2">
+            <h:dataTable id="datatable" value="#{musicController.matchingMusics}" var="item" border="3" cellpadding="2" cellspacing="2">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="ISBN" />
+                        <h:outputText value="ID" />
                     </f:facet> 
-                    <h:outputText value="#{item.ISBN}" ></h:outputText>
+                    <h:outputText value="#{item.ID}" ></h:outputText>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Author"/>
+                        <h:outputText value="Publisher"/>
                     </f:facet> 
-                    <h:outputText value="#{item.author}"></h:outputText>
+                    <h:outputText value="#{item.artist}"></h:outputText>
                 </h:column>
 
                 <h:column>

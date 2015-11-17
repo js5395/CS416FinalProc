@@ -35,14 +35,49 @@ and open the template in the editor.
         <h:form>
             <h2>Search</h2>
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                <h:outputText value="ISBN:"></h:outputText>
-                <h:inputText id="ISBN" required="false"></h:inputText>
-                <h:outputText value="Author:"></h:outputText>
-                <h:inputText id="author" required="false"></h:inputText>
+                <h:outputText value="ID:"></h:outputText>
+                <h:inputText label="ID" value="#{movie.ID}" required="false">
+                    <f:ajax event="keyup" render="datatable"/>
+                </h:inputText>
+                <h:outputText value="Publisher:"></h:outputText>
+                <h:inputText label="publisher" value="#{movie.publisher}" required="false">
+                    <f:ajax event="keyup" render="datatable"/>
+                </h:inputText>
                 <h:outputText value="Title:"></h:outputText>
-                <h:inputText id="title" required="false"></h:inputText>
-                <h:commandButton action="MovieSearch" value="Search"></h:commandButton>
+                <h:inputText label="title" value="#{movie.title}" required="false">
+                    <f:ajax event="keyup" render="datatable"/>
+                </h:inputText>
             </h:panelGrid>
+            <br/>
+            <h:dataTable id="datatable" value="#{movieController.matchingMovies}" var="item" border="3" cellpadding="2" cellspacing="2">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID" />
+                    </f:facet> 
+                    <h:outputText value="#{item.ID}" ></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Publisher"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.publisher}"></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.title}"></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Number of Available Copies"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.availableCopies}"></h:outputText>
+                </h:column>
+            </h:dataTable>
         </h:form>
     </h:body>
 </html>

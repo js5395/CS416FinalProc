@@ -32,15 +32,19 @@ public class MusicValidator implements Validator {
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-        int id = (int) value;
+        String ID = (String)value;
         HtmlInputText htmlInputText = (HtmlInputText) component;
         try (Connection connect = datasource.getConnection()) {
-            String sql = "select id from books";
+            String sql = "select ID from musics";
             PreparedStatement getID = connect.prepareStatement(sql);
-            ResultSet idList = getID.executeQuery();
-            while (idList.next()) {
-                if (id == idList.getInt("ID")) {
-                    FacesMessage facesMessage = new FacesMessage(htmlInputText.getLabel() + "ID already exists");
+            ResultSet IDList = getID.executeQuery();
+            if(!ID.matches("[0-9]+")){
+                FacesMessage facesMessage = new FacesMessage("ID must be only digits");
+                throw new ValidatorException(facesMessage);
+            }
+            while (IDList.next()) {
+                if (ID.equals(IDList.getString("ID"))) {
+                    FacesMessage facesMessage = new FacesMessage(htmlInputText.getLabel() + " already exists");
                     throw new ValidatorException(facesMessage);
                 }
 

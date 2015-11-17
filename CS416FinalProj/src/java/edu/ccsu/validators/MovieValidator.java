@@ -32,15 +32,19 @@ public class MovieValidator implements Validator {
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-        String id = (String) value;
+        String isbn = (String)value;
         HtmlInputText htmlInputText = (HtmlInputText) component;
         try (Connection connect = datasource.getConnection()) {
-            String sql = "select id from movies";
+            String sql = "select isbn from movies";
             PreparedStatement getID = connect.prepareStatement(sql);
-            ResultSet idList = getID.executeQuery();
-            while (idList.next()) {
-                if (id == idList.getString("ID")) {
-                    FacesMessage facesMessage = new FacesMessage(htmlInputText.getLabel() + "ID already exists");
+            ResultSet isbnList = getID.executeQuery();
+            if(!isbn.matches("[0-9]+")){
+                FacesMessage facesMessage = new FacesMessage("ID must be only digits");
+                throw new ValidatorException(facesMessage);
+            }
+            while (isbnList.next()) {
+                if (isbn.equals(isbnList.getString("ID"))) {
+                    FacesMessage facesMessage = new FacesMessage(htmlInputText.getLabel() + " already exists");
                     throw new ValidatorException(facesMessage);
                 }
 
