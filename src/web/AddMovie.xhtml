@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Add Movie</title>
+    </h:head>
+    <h:body>
+        <h1>Add Movie</h1>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <h:messages style="color:red;font-weight:bold;"></h:messages>
+        <h:form>
+
+            <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+                <h:outputText value="ID"></h:outputText>
+                <h:inputText label="ID" value="#{Movie.ID}" required="true"></h:inputText>
+                <h:outputText value="Title"></h:outputText>
+                <h:inputText label="title" value="#{Movie.Title}" required="true"></h:inputText>
+                <h:outputText value="Publisher"></h:outputText>
+                <h:inputText label="publisher" value="#{Movie.Publisher}" required="true"></h:inputText>
+                <h:outputText value="Total Copies"></h:outputText>
+                <h:inputText label="totalcopies" value="#{Movie.TotalCopies}" required="false"></h:inputText>
+                <h:panelGroup></h:panelGroup>
+                <h:commandButton action="#{movieController.saveMovie}" value="Save"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
