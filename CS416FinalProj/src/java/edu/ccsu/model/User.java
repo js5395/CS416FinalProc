@@ -8,6 +8,7 @@ package edu.ccsu.model;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +20,9 @@ import javax.persistence.Table;
  * @author steve
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 @Entity
-@Table(name = "USERTABLE")
+@Table(name = "USERS")
 public class User implements Serializable {
     
     @Id
@@ -30,11 +31,6 @@ public class User implements Serializable {
     
     @Column(name="PASSWORD")
     private String password;
-    
-    @Column(name="ISADMIN")
-    private boolean isAdmin;
-    
-    private boolean isLoggedIn = false;
 
     public User() {
     }
@@ -53,23 +49,6 @@ public class User implements Serializable {
     
     public void setPassword(String password){
         this.password = password;
-    }
-
-    
-    public boolean getIsAdmin(){
-        return isAdmin;
-    }
-    
-    public void setIsAdmin(boolean isAdmin){
-        this.isAdmin = isAdmin;
-    }
-    
-    public boolean getIsLoggedIn(){
-        return isLoggedIn;
-    }
-    
-    public void setIsLoggedIn(boolean isLoggedIn){
-        this.isLoggedIn = isLoggedIn;
     }
     
 }

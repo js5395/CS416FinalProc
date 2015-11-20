@@ -45,16 +45,16 @@ public class BookController {
     public List getMatchingBooks() {
         List<Book> books = new ArrayList();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        //String selectSQL = "select b from Book b where b.ISBN like :isbn";
+        
         String selectSQL = "SELECT b FROM Book b WHERE b.ISBN LIKE :isbn"
                 + " OR LOWER(b.author) LIKE LOWER(:author)"
                 + " OR LOWER(b.title) LIKE LOWER(:title)";
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
 
-            selectQuery.setParameter("isbn", book.getISBN() + "%");
-            selectQuery.setParameter("author", book.getAuthor() + "%");
-            selectQuery.setParameter("title", book.getTitle() + "%");
+            selectQuery.setParameter("isbn","%" + book.getISBN() + "%");
+            selectQuery.setParameter("author","%" + book.getAuthor() + "%");
+            selectQuery.setParameter("title","%" + book.getTitle() + "%");
 
             books = selectQuery.getResultList();
         } catch (Exception e) {
