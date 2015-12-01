@@ -14,18 +14,17 @@ import javax.transaction.UserTransaction;
 
 /**
  *
- * @artist steve
+ * @author steve
  */
 @ManagedBean
 public class MusicController {
-
     @PersistenceUnit(unitName = "CS416FinalProjPU")
     private EntityManagerFactory entityManagerFactory;
     @Resource
     private UserTransaction userTransaction;
     @ManagedProperty(value = "#{music}")
     private Music music;
-
+    
     public String saveMusic() {
         String returnValue = "MusicAddedError";
         try {
@@ -41,34 +40,16 @@ public class MusicController {
         }
         return returnValue;
     }
-
-    public List getMatchingMusics() {
-        List<Music> musics = new ArrayList();
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        //String selectSQL = "select b from Music b where b.ID like :ID";
-        String selectSQL = "SELECT b FROM Music b WHERE b.ID LIKE :ID"
-                + " OR LOWER(b.artist) LIKE LOWER(:artist)"
-                + " OR LOWER(b.title) LIKE LOWER(:title)";
-        try {
-            Query selectQuery = entityManager.createQuery(selectSQL);
-
-            selectQuery.setParameter("ID", music.getID() + "%");
-            selectQuery.setParameter("artist", music.getArtist() + "%");
-            selectQuery.setParameter("title", music.getTitle() + "%");
-
-            musics = selectQuery.getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return musics;
+    
+    public void search(){
+        
     }
-
-    public Music getMusic() {
+    
+    public Music getMusic(){
         return music;
     }
-
-    public void setMusic(Music music) {
+    
+    public void setMusic(Music music){
         this.music = music;
     }
 }

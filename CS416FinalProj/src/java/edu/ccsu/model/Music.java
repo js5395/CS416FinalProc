@@ -22,11 +22,7 @@ import javax.persistence.Table;
 @ManagedBean
 @RequestScoped
 @Entity
-<<<<<<< HEAD
-@Table(name = "Music")
-=======
 @Table(name = "music")
->>>>>>> master
 public class Music implements Serializable {
     
     @Id
@@ -65,11 +61,11 @@ public class Music implements Serializable {
         this.title = title;
     }
     
-    public String getArtist(){
+    public String getartist(){
         return artist;
     }
     
-    public void setArtist(String artist){
+    public void setartist(String artist){
         this.artist = artist;
     }
     

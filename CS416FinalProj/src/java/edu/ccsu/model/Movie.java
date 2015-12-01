@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @publisher Steve
+ * @author Steve
  */
 @ManagedBean
 @RequestScoped
