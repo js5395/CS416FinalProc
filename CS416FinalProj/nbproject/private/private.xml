@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Steve/Documents/CS416/CS416FinalProc/CS416FinalProj/src/java/edu/ccsu/model/UserGroup.java</file>
-            <file>file:/C:/Users/Steve/Documents/CS416/CS416FinalProc/CS416FinalProj/web/AddUser.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/CS416/CS416FinalProc/CS416FinalProj/src/java/edu/ccsu/model/User.java</file>
-            <file>file:/C:/Users/Steve/Documents/CS416/CS416FinalProc/CS416FinalProj/web/AddContent.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/CS416/CS416FinalProc/CS416FinalProj/src/java/edu/ccsu/controller/LoginController.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/Book.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/WEB-INF/sun-web.xml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/index.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Register.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/LoginController.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/servlets/LogoutServlet.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/LoginConfirmation.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Login.jsp</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/SearchBook.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Logout.jsp</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/UserAccount.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/Group.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/BookController.java</file>
         </group>
     </open-files>
 </project-private>
