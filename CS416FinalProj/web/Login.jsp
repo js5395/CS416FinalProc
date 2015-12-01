@@ -12,15 +12,10 @@
         <title>Login</title>
     </head>
     <body>
-        <a href="index.xhtml">Back to home</a><br/>
-        <h2>Login</h2>
         <form action="j_security_check" method="POST">
             Username<input type="text" name="j_username"/><br/>
             Password<input type="password" name="j_password"/><br/>
             <input type="submit" value="Login"/>
-        </form>
-        <form action="LogoutServlet" method="GET">
-            <input type="submit" value="Logout"/>
         </form>
     </body>
 </html>

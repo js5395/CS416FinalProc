@@ -52,7 +52,7 @@ public class BookController {
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
 
-            selectQuery.setParameter("isbn",book.getISBN() + "%");
+            selectQuery.setParameter("isbn","%" + book.getISBN() + "%");
             selectQuery.setParameter("author","%" + book.getAuthor() + "%");
             selectQuery.setParameter("title","%" + book.getTitle() + "%");
 

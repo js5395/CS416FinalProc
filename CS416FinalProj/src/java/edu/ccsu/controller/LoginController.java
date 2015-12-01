@@ -5,7 +5,6 @@
  */
 package edu.ccsu.controller;
 
-import edu.ccsu.model.Group;
 import edu.ccsu.model.User;
 import edu.ccsu.model.UserGroup;
 import java.security.MessageDigest;
@@ -26,7 +25,7 @@ import javax.transaction.UserTransaction;
  * @author steve
  */
 @ManagedBean
-public class LoginController {
+public class LoginController  {
 
     @PersistenceUnit(unitName = "CS416FinalProjPU")
     private EntityManagerFactory entityManagerFactory;
@@ -44,27 +43,23 @@ public class LoginController {
             return "Login";
         } else {
             if (user.getPassword().equals(u.getPassword())) {
-
+                
                 return "LoginConfirmation";
             } else {
                 return "Login";
             }
         }
     }
-
+    
     public String saveUser() {
         String returnValue = "UserAddedError";
         try {
-            user.setPassword(Hash(user.getPassword()));
+            user.setPassword (Hash(user.getPassword()));
             UserGroup userGroup = new UserGroup();
-             userGroup.setUsername(user.getUsername());
-             userGroup.setGroupName("users");
+            userGroup.setUsername(user.getUsername());
+            userGroup.setGroupName("users");
             userTransaction.begin();
             EntityManager em = entityManagerFactory.createEntityManager();
-            /*Group userGroup = em.find(Group.class, "users");
-            user.getGroups().add(userGroup);
-            userGroup.getUsers().add(user);*/
-            
             em.persist(userGroup);
             em.persist(user);
             userTransaction.commit();
@@ -76,25 +71,21 @@ public class LoginController {
         }
         return returnValue;
     }
-
+    
     public String Hash(String password) throws NoSuchAlgorithmException {
         MessageDigest msgDigest = MessageDigest.getInstance("MD5");
         byte[] bs;
         msgDigest.reset();
         bs = msgDigest.digest(password.getBytes());
         StringBuilder sBuilder = new StringBuilder();
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < bs.length; i++) {
-            sb.append(Integer.toString((bs[i] & 0xff) + 0x100, 16).substring(1));
+        for(int i=0; i<bs.length; i++){
+            String hexVal = Integer.toString(0xFF & bs[i]);
+            if(hexVal.length() == 1){
+                sBuilder.append("0");
+            }
+            sBuilder.append(hexVal);         
         }
-        /*for(int i=0; i<bs.length; i++){
-         String hexVal = Integer.toString(0xFF & bs[i]);
-         if(hexVal.length() == 1){
-         sBuilder.append('0');
-         }
-         sBuilder.append(hexVal);         
-         }*/
-        return sb.toString();
+        return sBuilder.toString();
     }
 
     public LoginController() {
