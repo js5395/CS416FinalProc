@@ -22,7 +22,11 @@ import javax.persistence.Table;
 @ManagedBean
 @RequestScoped
 @Entity
+<<<<<<< HEAD
 @Table(name = "Music")
+=======
+@Table(name = "music")
+>>>>>>> master
 public class Music implements Serializable {
     
     @Id
