@@ -6,6 +6,9 @@
 package edu.ccsu.controller;
 
 import edu.ccsu.model.User;
+import edu.ccsu.model.UserGroup;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
@@ -51,18 +54,38 @@ public class LoginController  {
     public String saveUser() {
         String returnValue = "UserAddedError";
         try {
+            user.setPassword (Hash(user.getPassword()));
+            UserGroup userGroup = new UserGroup();
+            userGroup.setUsername(user.getUsername());
+            userGroup.setGroupName("users");
             userTransaction.begin();
             EntityManager em = entityManagerFactory.createEntityManager();
-            user.setIsAdmin(false);
-            user.setIsLoggedIn(false);
+            em.persist(userGroup);
             em.persist(user);
             userTransaction.commit();
             em.close();
             returnValue = "UserAddedConfirmation";
         } catch (Exception e) {
+            System.out.println(e.toString());
             e.printStackTrace();
         }
         return returnValue;
+    }
+    
+    public String Hash(String password) throws NoSuchAlgorithmException {
+        MessageDigest msgDigest = MessageDigest.getInstance("MD5");
+        byte[] bs;
+        msgDigest.reset();
+        bs = msgDigest.digest(password.getBytes());
+        StringBuilder sBuilder = new StringBuilder();
+        for(int i=0; i<bs.length; i++){
+            String hexVal = Integer.toString(0xFF & bs[i]);
+            if(hexVal.length() == 1){
+                sBuilder.append("0");
+            }
+            sBuilder.append(hexVal);         
+        }
+        return sBuilder.toString();
     }
 
     public LoginController() {
