@@ -35,8 +35,13 @@ public class User implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
 
+    private double amountOwed;
+
     @ManyToMany(mappedBy = "users")
     private Set<Group> groups = new HashSet();
+
+    @ManyToMany(mappedBy = "users")
+    private Set<Book> books = new HashSet();
 
     @Transient
     private String[] groupNames;
@@ -59,8 +64,6 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
 
     public String[] getGroupNames() {
         return groupNames;
@@ -76,6 +79,23 @@ public class User implements Serializable {
 
     public void setGroups(Set<Group> groups) {
         this.groups = groups;
+    }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
+    
+
+    public double getAmountOwed() {
+        return amountOwed;
+    }
+
+    public void setAmountOwed(double amountOwed) {
+        this.amountOwed = amountOwed;
     }
 
 }

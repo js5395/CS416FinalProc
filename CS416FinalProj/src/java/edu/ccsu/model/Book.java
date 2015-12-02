@@ -6,6 +6,8 @@
 package edu.ccsu.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.faces.bean.ManagedBean;
@@ -13,6 +15,9 @@ import javax.faces.bean.RequestScoped;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -40,6 +45,12 @@ public class Book implements Serializable {
     
     @Column(name = "TotalCopies")
     private Integer totalCopies = null;
+    
+    @ManyToMany
+    @JoinTable(name="BorrowedBooks",
+            joinColumns=@JoinColumn(name="USERNAME",referencedColumnName="USERNAME"),
+            inverseJoinColumns=@JoinColumn(name="BOOKTITLE",referencedColumnName="TITLE"))
+    private Set<User> users = new HashSet();
     
     public Book(){
         
@@ -85,9 +96,14 @@ public class Book implements Serializable {
         this.totalCopies = totalCopies;
     }
 
-    @Override
-    public String toString() {
-        return "";
+    public Set<User> getUsers() {
+        return users;
     }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    
     
 }

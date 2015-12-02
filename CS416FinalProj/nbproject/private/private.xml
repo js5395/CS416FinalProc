@@ -7,15 +7,15 @@
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/WEB-INF/sun-web.xml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/index.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Register.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/LoginController.java</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/servlets/LogoutServlet.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/admin/BookAddedConfirmation.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/LoginConfirmation.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Login.jsp</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/SearchBook.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Logout.jsp</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/User.java</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/UserAccount.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/users/Search.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/Group.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/users/SearchBook.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/BookController.java</file>
         </group>
     </open-files>

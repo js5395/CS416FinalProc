@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Find Book</title>
+    </h:head>
+    <h:body>
+        <h:outputStylesheet library="css" name="styles.css"/>
+        <h:form>
+            <h2>Search Books</h2>
+            <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+                <h:outputText value="ISBN:"></h:outputText>
+                <h:inputText label="ISBN" value="#{book.ISBN}" required="false">
+                    <f:ajax event="keyup" render="datatable"/>
+                </h:inputText>
+                <h:outputText value="Author:"></h:outputText>
+                <h:inputText label="author" value="#{book.author}" required="false">
+                    <f:ajax event="keyup" render="datatable"/>
+                </h:inputText>
+                <h:outputText value="Title:"></h:outputText>
+                <h:inputText label="title" value="#{book.title}" required="false">
+                    <f:ajax event="keyup" render="datatable"/>
+                </h:inputText>
+            </h:panelGrid>
+            <br/>
+            <h:dataTable id="datatable" value="#{bookController.matchingBooks}" var="item" border="3" cellpadding="2" cellspacing="2">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ISBN" />
+                    </f:facet> 
+                    <h:outputText value="#{item.ISBN}" ></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Author"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.author}"></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.title}"></h:outputText>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Number of Available Copies"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.availableCopies}"></h:outputText>
+                </h:column>
+                
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>

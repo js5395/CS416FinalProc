@@ -18,7 +18,7 @@
         <br/>
 
         <h:link value="Add Content" outcome="admin/AddContent" rendered="#{request.isUserInRole('admin')}"/><br/>       
-        <h:link value="Search Content" outcome="Search"/><br/><br/>
+        <h:link value="Search Content" outcome="users/Search"/><br/><br/>
         
         <h:link value="Account" outcome="UserAccount" rendered="#{not empty request.remoteUser}"/>
 

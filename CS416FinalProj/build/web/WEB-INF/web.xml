@@ -42,6 +42,16 @@
             <description/>
             <url-pattern>/admin/*</url-pattern>
         </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>Admin pages faces</web-resource-name>
+            <description/>
+            <url-pattern>/faces/admin/*</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>Admin absolute</web-resource-name>
+            <description/>
+            <url-pattern>/CS416FinalProj/faces/admin/*</url-pattern>
+        </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>admin</role-name>
@@ -55,8 +65,8 @@
         <auth-method>FORM</auth-method>
         <realm-name>jdbcRealm</realm-name>
         <form-login-config>
-            <form-login-page>/Login.jsp</form-login-page>
-            <form-error-page>/LoginError.jsp</form-error-page>
+            <form-login-page>/faces/Login.jsp</form-login-page>
+            <form-error-page>/faces/LoginError.jsp</form-error-page>
         </form-login-config>
     </login-config>
 </web-app>

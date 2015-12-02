@@ -12,8 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="LogoutServlet">
-            <input type="submit" value="Logout"/>
-        </form>
+      
+        <%
+              String redirectPage = "LogoutServlet";
+              response.sendRedirect(redirectPage);
+        %>
     </body>
 </html>
