@@ -7,6 +7,7 @@ package edu.ccsu.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -35,16 +36,14 @@ public class User implements Serializable {
     @Column(name = "PASSWORD")
     private String password;
 
-    private double amountOwed;
+    @Column(name = "AMOUNTOWED")
+    private double amountOwed = 0.0;
 
     @ManyToMany(mappedBy = "users")
-    private Set<Group> groups = new HashSet();
+    private List<Groups> groups;
 
     @ManyToMany(mappedBy = "users")
-    private Set<Book> books = new HashSet();
-
-    @Transient
-    private String[] groupNames;
+    private List<Book> books;
 
     public User() {
     }
@@ -65,27 +64,19 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String[] getGroupNames() {
-        return groupNames;
-    }
-
-    public void setGroupNames(String[] groupNames) {
-        this.groupNames = groupNames;
-    }
-
-    public Set<Group> getGroups() {
+    public List<Groups> getGroups() {
         return groups;
     }
 
-    public void setGroups(Set<Group> groups) {
+    public void setGroups(List<Groups> groups) {
         this.groups = groups;
     }
 
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
     

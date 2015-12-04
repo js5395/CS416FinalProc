@@ -5,7 +5,7 @@
  */
 package edu.ccsu.controller;
 
-import edu.ccsu.model.Group;
+import edu.ccsu.model.Groups;
 import edu.ccsu.model.User;
 import edu.ccsu.model.UserGroup;
 import java.security.MessageDigest;
@@ -55,18 +55,23 @@ public class LoginController {
     public String saveUser() {
         String returnValue = "UserAddedError";
         try {
-            user.setPassword(Hash(user.getPassword()));
-            UserGroup userGroup = new UserGroup();
-             userGroup.setUsername(user.getUsername());
-             userGroup.setGroupName("users");
             userTransaction.begin();
             EntityManager em = entityManagerFactory.createEntityManager();
+            user.setPassword(Hash(user.getPassword()));
+
+            Groups group = em.find(Groups.class, "users");
+            List<User> users = group.getUsers();
+            users.add(user);
+            group.setUsers(users);
+            List<Groups> groupList = user.getGroups();
+            groupList.add(group);
+            user.setGroups(groupList);
+
             /*Group userGroup = em.find(Group.class, "users");
-            user.getGroups().add(userGroup);
-            userGroup.getUsers().add(user);*/
-            
-            em.persist(userGroup);
+             user.getGroups().add(userGroup);
+             userGroup.getUsers().add(user);*/
             em.persist(user);
+            em.persist(group);
             userTransaction.commit();
             em.close();
             returnValue = "UserAddedConfirmation";

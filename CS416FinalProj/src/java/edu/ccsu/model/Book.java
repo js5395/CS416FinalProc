@@ -7,11 +7,14 @@ package edu.ccsu.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,6 +34,7 @@ import javax.persistence.Table;
 public class Book implements Serializable {
     
     @Id
+    @ManagedProperty(value="#{param.ISBN}")
     @Column(name = "ISBN")
     private String ISBN = null;
     
@@ -46,11 +50,13 @@ public class Book implements Serializable {
     @Column(name = "TotalCopies")
     private Integer totalCopies = null;
     
+    private boolean isSelected = false;
+    
     @ManyToMany
-    @JoinTable(name="BorrowedBooks",
-            joinColumns=@JoinColumn(name="USERNAME",referencedColumnName="USERNAME"),
-            inverseJoinColumns=@JoinColumn(name="BOOKTITLE",referencedColumnName="TITLE"))
-    private Set<User> users = new HashSet();
+    @JoinTable(name="BORROWEDBOOKS",
+            joinColumns=@JoinColumn(name="ISBN",referencedColumnName="ISBN"),
+            inverseJoinColumns=@JoinColumn(name="USERNAME",referencedColumnName="USERNAME"))
+    private List<User> users;
     
     public Book(){
         
@@ -96,12 +102,20 @@ public class Book implements Serializable {
         this.totalCopies = totalCopies;
     }
 
-    public Set<User> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public boolean isIsSelected() {
+        return isSelected;
+    }
+
+    public void setIsSelected(boolean isSelected) {
+        this.isSelected = isSelected;
     }
 
     
