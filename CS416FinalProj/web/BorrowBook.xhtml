@@ -1,12 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Borrow Book</title>
     </h:head>
     <h:body>
-        Borrow Page
+        <h3>Book Selected:</h3>
+        <h:form >
+            <h:outputText value="ISBN: #{book.ISBN}"></h:outputText><br/>
+            <h:outputText value="Author: #{book.author}"></h:outputText><br/>
+            <h:outputText value="Title: #{book.title}"></h:outputText><br/><br/>
+            <h:inputHidden value="#{book.ISBN}"></h:inputHidden>
+            <h:commandButton value="Confirm" action="#{bookController.checkoutBook(request.remoteUser,book.getISBN())}"></h:commandButton>
+        </h:form>
     </h:body>
 </html>
 

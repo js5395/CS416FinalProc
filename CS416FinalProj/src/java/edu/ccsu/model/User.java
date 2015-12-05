@@ -45,6 +45,9 @@ public class User implements Serializable {
     @ManyToMany(mappedBy = "users")
     private List<Book> books;
 
+    @Transient
+    private String[] groupNames;
+
     public User() {
     }
 
@@ -64,6 +67,15 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String[] getGroupNames() {
+        return groupNames;
+    }
+
+    public void setGroupNames(String[] groupNames) {
+        this.groupNames = groupNames;
+    }
+    
+
     public List<Groups> getGroups() {
         return groups;
     }
@@ -79,7 +91,6 @@ public class User implements Serializable {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
-    
 
     public double getAmountOwed() {
         return amountOwed;

@@ -50,8 +50,6 @@ public class Book implements Serializable {
     @Column(name = "TotalCopies")
     private Integer totalCopies = null;
     
-    private boolean isSelected = false;
-    
     @ManyToMany
     @JoinTable(name="BORROWEDBOOKS",
             joinColumns=@JoinColumn(name="ISBN",referencedColumnName="ISBN"),
@@ -110,14 +108,5 @@ public class Book implements Serializable {
         this.users = users;
     }
 
-    public boolean isIsSelected() {
-        return isSelected;
-    }
-
-    public void setIsSelected(boolean isSelected) {
-        this.isSelected = isSelected;
-    }
-
-    
     
 }

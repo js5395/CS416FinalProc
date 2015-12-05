@@ -58,18 +58,14 @@ and open the template in the editor.
                     </f:facet> 
                     <h:outputText value="#{item.availableCopies}"></h:outputText>
                 </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value=""/>
-                    </f:facet>
-                    <h:commandLink action="#{bookController.checkoutBook(request.remoteUser)}">
-                        <f:setPropertyActionListener value="#{item.ISBN}" target="#{book.ISBN}"/>
-                    </h:commandLink>
-                </h:column>
-
             </h:dataTable>
-
+        </h:form>
+        <br/><br/>
+        <h:form>
+            Enter ISBN: <h:inputText value="#{book.ISBN}">
+                <f:validator validatorId="isbnValidator"/>
+            </h:inputText>
+            <h:commandButton action="#{bookController.getSelectedBook()}" value="Borrow"></h:commandButton>
         </h:form>
     </h:body>
 </html>

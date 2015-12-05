@@ -70,47 +70,77 @@ public class BookController {
         return books;
     }
 
-    public void checkoutBook(String currentUser) {
+    public String checkoutBook(String currentUser, String isbn) {
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             //entityManager.getTransaction().begin();
-            Book borrowedBook = entityManager.find(Book.class, ISBN);
+            Book borrowedBook = entityManager.find(Book.class, book.getISBN());
             User user = entityManager.find(User.class, currentUser);
 
+            if (borrowedBook.getAvailableCopies() == 0) {
+                return "NoAvailableCopies";
+            }
             List<Book> books = user.getBooks();
             books.add(borrowedBook);
             user.setBooks(books);
-            //user.setAmountOwed(1.25);
+            user.setAmountOwed(user.getAmountOwed() + .25);
             List<User> users = borrowedBook.getUsers();
             users.add(user);
             borrowedBook.setUsers(users);
-            borrowedBook.setAvailableCopies(borrowedBook.getAvailableCopies() - 1 );
+            borrowedBook.setAvailableCopies(borrowedBook.getAvailableCopies() - 1);
 
             entityManager.persist(user);
             entityManager.persist(borrowedBook);
             userTransaction.commit();
             entityManager.close();
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
+        return "UserAccount";
     }
-    
-    public List getBorrowedBooks(){
-        List<Book> books = new ArrayList();
+
+    public String getSelectedBook() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        
-        String sql = "select b from Book b";
+
+        //String isbn = book.getISBN();
+        Book borrowBook = entityManager.find(Book.class, book.getISBN());
+        book.setAuthor(borrowBook.getAuthor());
+        book.setTitle(borrowBook.getTitle());
+
+        return "BorrowBook";
+    }
+
+    public String returnBook(String currentUser) {
+        String result = "BookReturnError";
         try {
-            Query selectQuery = entityManager.createQuery(sql);
-            books = selectQuery.getResultList();
+            userTransaction.begin();
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            User user = entityManager.find(User.class, currentUser);
+            Book returnBook = entityManager.find(Book.class, book.getISBN());
+
+            List<Book> books = user.getBooks();
+            List<User> users = returnBook.getUsers();
+
+            books.remove(returnBook);
+            user.setBooks(books);
+
+            users.remove(user);
+            returnBook.setUsers(users);
+            returnBook.setAvailableCopies(returnBook.getAvailableCopies() + 1);
+
+            entityManager.persist(user);
+            entityManager.persist(returnBook);
+            userTransaction.commit();
             entityManager.close();
+            result = "BookReturnConfirmation";
+
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-        return books;
+        return result;
     }
 
     public Book getBook() {

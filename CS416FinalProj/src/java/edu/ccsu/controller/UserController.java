@@ -46,6 +46,31 @@ public class UserController {
         return books;
     }
 
+    public double getAmountOwed(String currentUser) {
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        User user = entityManager.find(User.class, currentUser);
+
+        return user.getAmountOwed();
+    }
+
+    public String payAmountOwed(String currentUser) {
+        try {
+            userTransaction.begin();
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            User user = entityManager.find(User.class, currentUser);
+            
+            user.setAmountOwed(0.0);
+            
+            entityManager.persist(user);
+            userTransaction.commit();
+
+        } catch (Exception e) {
+
+        }
+        return "UserAccount";
+    }
+
     public UserController() {
 
     }

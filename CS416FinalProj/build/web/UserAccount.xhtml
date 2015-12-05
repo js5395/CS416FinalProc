@@ -7,32 +7,46 @@
         <title>User Account</title>
     </h:head>
     <h:body>
+        <h:link outcome="index.xhtml" value="Home"></h:link><br/>
         <p>Username: #{request.remoteUser}</p><br/>
-        Amount Owed: <h:outputLabel></h:outputLabel>
+            <h:form>
+                Amount Owed: <h:outputText value="#{userController.getAmountOwed(request.remoteUser)}">
+                    <f:convertNumber currencySymbol="$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
+                </h:outputText><br/>
+                <h:commandButton action="#{userController.payAmountOwed(request.remoteUser)}" value="Pay"></h:commandButton>
+            </h:form>
+        <br/>
         <h2>Borrowed Books:</h2>
-        <h:dataTable id="datatable" value="#{userController.getUserBooks(request.remoteUser)}" var="item" border="3" cellpadding="2" cellspacing="2">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="ISBN" />
-                </f:facet> 
-                <h:outputText value="#{item.ISBN}" ></h:outputText>
-            </h:column>
+        <h:form>
+            <h:dataTable id="datatable" value="#{userController.getUserBooks(request.remoteUser)}" var="item" border="3" cellpadding="2" cellspacing="2">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ISBN" />
+                    </f:facet> 
+                    <h:outputText value="#{item.ISBN}" ></h:outputText>
+                </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Author"/>
-                </f:facet> 
-                <h:outputText value="#{item.author}"></h:outputText>
-            </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Author"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.author}"></h:outputText>
+                </h:column>
 
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="Title"/>
-                </f:facet> 
-                <h:outputText value="#{item.title}"></h:outputText>
-            </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet> 
+                    <h:outputText value="#{item.title}"></h:outputText>
+                </h:column>
 
-        </h:dataTable>
+            </h:dataTable>
+        </h:form>
+        <br/>
+        <h:form>
+            Enter ISBN: <h:inputText value="#{book.ISBN}"></h:inputText><br/>
+            <h:commandButton action="#{bookController.returnBook(request.remoteUser)}" value="Return Book"></h:commandButton>
+        </h:form>
     </h:body>
 </html>
 

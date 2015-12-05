@@ -3,16 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/LoginConfirmation.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/Book.java</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/index.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Register.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/BorrowBook.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/MovieController.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/Groups.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/BookReturnConfirmation.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/LoginController.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/admin/AddContent.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/BookReturnError.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/LoginConfirmation.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/Login.jsp</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/validators/BookValidator.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/validators/IsbnValidator.java</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/SearchBook.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/User.java</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/BorrowBook.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/model/Groups.java</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/admin/AddBook.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/SearchMusic.xhtml</file>
+            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/admin/AddMovie.xhtml</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/UserController.java</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/web/UserAccount.xhtml</file>
-            <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/LoginController.java</file>
             <file>file:/C:/Users/Steve/Documents/NetBeansProjects/CS416FinalProj/src/java/edu/ccsu/controller/BookController.java</file>
         </group>
     </open-files>

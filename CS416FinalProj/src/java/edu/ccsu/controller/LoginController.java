@@ -59,19 +59,15 @@ public class LoginController {
             EntityManager em = entityManagerFactory.createEntityManager();
             user.setPassword(Hash(user.getPassword()));
 
-            Groups group = em.find(Groups.class, "users");
-            List<User> users = group.getUsers();
-            users.add(user);
-            group.setUsers(users);
-            List<Groups> groupList = user.getGroups();
-            groupList.add(group);
-            user.setGroups(groupList);
+            Groups userGroup = em.find(Groups.class, "users");
 
-            /*Group userGroup = em.find(Group.class, "users");
-             user.getGroups().add(userGroup);
-             userGroup.getUsers().add(user);*/
+            userGroup.getUsers().add(user);
+            user.getGroups().add(userGroup);
+
             em.persist(user);
-            em.persist(group);
+            user.getGroups().stream().forEach((group) -> {
+                em.persist(group);
+            });
             userTransaction.commit();
             em.close();
             returnValue = "UserAddedConfirmation";
