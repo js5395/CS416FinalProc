@@ -7,7 +7,6 @@ package edu.ccsu.controller;
 
 import edu.ccsu.model.Groups;
 import edu.ccsu.model.User;
-import edu.ccsu.model.UserGroup;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -63,11 +62,8 @@ public class LoginController {
 
             userGroup.getUsers().add(user);
             user.getGroups().add(userGroup);
-
             em.persist(user);
-            user.getGroups().stream().forEach((group) -> {
-                em.persist(group);
-            });
+            em.persist(userGroup);
             userTransaction.commit();
             em.close();
             returnValue = "UserAddedConfirmation";

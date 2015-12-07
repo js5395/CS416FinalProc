@@ -28,7 +28,7 @@ import javax.sql.DataSource;
 public class BookValidator implements Validator {
 
     @Resource(name = "jdbc/HW3DB")
-    DataSource datasource;
+    private DataSource datasource;
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
@@ -39,7 +39,7 @@ public class BookValidator implements Validator {
             PreparedStatement getISBN = connect.prepareStatement(sql);
             ResultSet isbnList = getISBN.executeQuery();
             if(!isbn.matches("[0-9]+")){
-                FacesMessage facesMessage = new FacesMessage("ISBN must be only digits");
+                FacesMessage facesMessage = new FacesMessage("ISBN must contain only digits");
                 throw new ValidatorException(facesMessage);
             }
             while (isbnList.next()) {

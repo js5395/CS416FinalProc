@@ -8,7 +8,6 @@ package edu.ccsu.controller;
 import edu.ccsu.model.Book;
 import edu.ccsu.model.Groups;
 import edu.ccsu.model.User;
-import edu.ccsu.model.UserGroup;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;

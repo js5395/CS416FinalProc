@@ -70,7 +70,10 @@ public class BookController {
         return books;
     }
 
-    public String checkoutBook(String currentUser, String isbn) {
+    public String checkoutBook(String currentUser) {
+        if(currentUser.equals("")){
+            return "Login.jsp";
+        }
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -81,10 +84,20 @@ public class BookController {
             if (borrowedBook.getAvailableCopies() == 0) {
                 return "NoAvailableCopies";
             }
+            
+            if(user.getAmountOwed() >= 1.0){
+                return "AmountOwedNotification";
+            }
+            
+            for(Book b : user.getBooks()){
+                if(b.getISBN().equals(borrowedBook.getISBN()))
+                    return "DuplicateBookNotification";
+            }
+            
             List<Book> books = user.getBooks();
             books.add(borrowedBook);
             user.setBooks(books);
-            user.setAmountOwed(user.getAmountOwed() + .25);
+            user.setAmountOwed(user.getAmountOwed() + .5);
             List<User> users = borrowedBook.getUsers();
             users.add(user);
             borrowedBook.setUsers(users);

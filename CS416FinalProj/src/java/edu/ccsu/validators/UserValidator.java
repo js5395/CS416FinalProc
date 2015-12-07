@@ -35,7 +35,7 @@ public class UserValidator implements Validator {
         String user = (String)value;
         HtmlInputText htmlInputText = (HtmlInputText) component;
         try (Connection connect = datasource.getConnection()) {
-            String sql = "select username from usertable";
+            String sql = "select username from users";
             PreparedStatement getUser = connect.prepareStatement(sql);
             ResultSet userList = getUser.executeQuery();
             while (userList.next()) {

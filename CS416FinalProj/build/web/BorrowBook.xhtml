@@ -13,7 +13,7 @@
             <h:outputText value="Author: #{book.author}"></h:outputText><br/>
             <h:outputText value="Title: #{book.title}"></h:outputText><br/><br/>
             <h:inputHidden value="#{book.ISBN}"></h:inputHidden>
-            <h:commandButton value="Confirm" action="#{bookController.checkoutBook(request.remoteUser,book.getISBN())}"></h:commandButton>
+            <h:commandButton value="Confirm" action="#{bookController.checkoutBook(request.remoteUser)}"></h:commandButton>
         </h:form>
     </h:body>
 </html>

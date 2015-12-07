@@ -6,6 +6,7 @@
 package edu.ccsu.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,7 +41,7 @@ public class User implements Serializable {
     private double amountOwed = 0.0;
 
     @ManyToMany(mappedBy = "users")
-    private List<Groups> groups;
+    private List<Groups> groups = new ArrayList<>();
 
     @ManyToMany(mappedBy = "users")
     private List<Book> books;

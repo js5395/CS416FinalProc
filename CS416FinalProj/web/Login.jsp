@@ -19,8 +19,5 @@
             Password<input type="password" name="j_password"/><br/>
             <input type="submit" value="Login"/>
         </form>
-        <form action="LogoutServlet" method="GET">
-            <input type="submit" value="Logout"/>
-        </form>
     </body>
 </html>

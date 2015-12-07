@@ -8,9 +8,10 @@
     </h:head>
     <h:body>
         <h:link outcome="index.xhtml" value="Home"></h:link><br/>
+        <h:link outcome="Search.xhtml" value="Search Content"></h:link><br/>
         <p>Username: #{request.remoteUser}</p><br/>
             <h:form>
-                Amount Owed: <h:outputText value="#{userController.getAmountOwed(request.remoteUser)}">
+                <b>Amount Owed:</b> <h:outputText value="#{userController.getAmountOwed(request.remoteUser)}">
                     <f:convertNumber currencySymbol="$" groupingUsed="true" maxFractionDigits="2" type="currency"/>
                 </h:outputText><br/>
                 <h:commandButton action="#{userController.payAmountOwed(request.remoteUser)}" value="Pay"></h:commandButton>
